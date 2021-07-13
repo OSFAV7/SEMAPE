@@ -5,10 +5,7 @@
 <body>
   <section>
     <div style="width: 75%; background-color: aqua; margin: auto;">
-          CATEGORIAS: 
-          {% for categoria in categoriaLLAMA %}
-              <a href="{% url 'categorias' categoria.id %}">{{ categoria.nombre}}</a> 
-          {% endfor %}
+          CATEGORIAS: {{categoria.nombre}}       
     </div>
 </section>
     {% for proyecto in proyectosLLAMA %}
@@ -26,7 +23,7 @@
               <div>
 
               </div style="text-alingn: left;">
-                Cliente: {{ proyecto.empresaCliente.empresa }}
+                Cliente: {{ proyecto.empresaCliente }}
              
             </div>
           </div>
