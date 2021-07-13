@@ -4,41 +4,41 @@ from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class categorias(models.Model):
-    nombre = models.CharField(max_length=50)
-    created = models.DateField(auto_now_add=True)
-    update  = models.DateField(auto_now_add=True)
+    nombre = models.CharField('Nombre de la categoria',max_length=50)
+    created = models.DateField('Fecha de creacion',auto_now_add=True)
+    update  = models.DateField('Fecha de actualizacion',auto_now_add=True)
 
     class Meta:
-        verbose_name='categoria'
-        verbose_name_plural='categorias'
+        verbose_name='Categoria'
+        verbose_name_plural='Categorias'
     
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 class empresasCliente(models.Model):
-    empresa = models.CharField(max_length=50)
-    created = models.DateField(auto_now_add=True)
-    update  = models.DateField(auto_now_add=True)
+    empresa = models.CharField('Nombrre de la empresa',max_length=50)
+    created = models.DateField('Fecha de registro',auto_now_add=True)
+    update  = models.DateField('Fecha de actualizacion',auto_now_add=True)
 
     class Meta:
-        verbose_name='empresa'
-        verbose_name_plural='empresas'
+        verbose_name='Empresa cliente'
+        verbose_name_plural='empresas clientes'
     
-    def _str_(self):
-        return self.nombre
+    def __str__(self):
+        return self.empresa
 
 class proyecto(models.Model):
-    titulo = models.CharField(max_length=50)
-    contenido = models.TextField(max_length=1000)
-    imagen = models.ImageField(upload_to='Portafolio', null=True, blank=True)
+    titulo = models.CharField('Nombre del proyecto', max_length=50)
+    contenido = models.TextField('Descripcion del protyecto', max_length=1000)
+    imagen = models.ImageField('Imagen para mostrar', upload_to='Portafolio', null=True, blank=True)
     empresaCliente =models.ForeignKey(empresasCliente, on_delete= models.CASCADE)
     categorias = models.ManyToManyField(categorias)
-    created = models.DateField(auto_now_add=True)
-    update  = models.DateField(auto_now_add=True)
+    created = models.DateField('Fecha de registro', auto_now_add=True)
+    update  = models.DateField('Fecha de actualizacion', auto_now_add=True)
 
     class Meta:
-        verbose_name='proyecto'
-        verbose_name_plural='proyectos'
+        verbose_name='Proyecto'
+        verbose_name_plural='Proyectos'
     
-    def _str_(self):
+    def __str__(self):
         return self.titulo
