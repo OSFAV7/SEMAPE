@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from Servicios.models import Servicio
 
+from Servicios.models import Servicio
+from django.views.generic import TemplateView, ListView
 
 # Create your views here.
-def service(request):
-    servicios_llamada= Servicio.objects.all()
-    return render(request, 'Servicios/servicios.html',{"servicioLLAMA":servicios_llamada})
+class Service(ListView):
+    template_name= 'Servicios/servicios.html'
+    context_object_name="servicioLLAMA"
+    queryset= Servicio.objects.all()

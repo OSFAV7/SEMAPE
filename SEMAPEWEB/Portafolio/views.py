@@ -1,13 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from Portafolio.models import proyecto, categorias
+from django.views.generic import TemplateView, ListView
 
-# Create your views here.
-def folder(request):
-    proyectos_llamada= proyecto.objects.all()
-    categoriallamada= categorias.objects.all()
-    return render(request, 'Portafolio/portafolio.html', {'proyectosLLAMA': proyectos_llamada , 'categoriaLLAMA':categoriallamada})
 
-def categoria(request, categoria_id):
-    categoria= categorias.objects.get(id=categoria_id)
-    proyectos_llamada= proyecto.objects.filter(categorias= categoria)
-    return render(request, 'Portafolio/categorias.html',{'proyectosLLAMA': proyectos_llamada,'categoria':categoria})
+class Folder(ListView):
+    template_name= 'Portafolio/portafolio.html'
+
+    def get(self,request,*args,**kwargs):
+        proyectosllamda=proyecto.objects.all()
+        categoriallamada= categorias.objects.all()
+        return render(request,self.template_name,{'proyectosLLAMA':proyectosllamda,'categoriaLLAMA':categoriallamada})
+
+class Categorias(ListView):
+    template_name='Portafolio/categorias.html'
+
+    def get_queryset(self):
+        self.categoria= get_object_or_404(categorias, id=self.kwargs['categoria_id'])
+        self.proyectoLLama= proyecto.objects.filter(categorias =self.categoria)
+        return  self.proyectoLLama, self.categoria
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categoria'] = self.categoria
+        context['listaProyecto'] = self.proyectoLLama
+        return context
+

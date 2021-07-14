@@ -1,14 +1,16 @@
-from django.db.models.query import QuerySet
-from django.shortcuts import render, HttpResponse
+from django.db.models.query import QuerySet, ValuesIterable
+from django.shortcuts import render
+from django.views.generic import TemplateView
 
 # Create your views here.
-def home(request):
-    QuerySet= request.GET.get("busqueda")
-    if QuerySet:
-        print('buqueda realisada')
+class Home(TemplateView):
+    template_name= 'Index/inicio.html'
+    
 
-    return render(request, 'Index/inicio.html')
+ #   QuerySet= request.GET.get("busqueda")
+  #  if QuerySet:
+  #      print('buqueda realisada')
 
-
-def contac(request):
-    return render(request, 'Index/contacto.html')
+class Contac(TemplateView):
+    template_name='Index/contacto.html'
+    
