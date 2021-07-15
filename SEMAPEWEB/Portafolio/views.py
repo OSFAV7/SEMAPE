@@ -6,10 +6,18 @@ from django.views.generic import TemplateView, ListView
 class Folder(ListView):
     template_name= 'Portafolio/portafolio.html'
 
-    def get(self,request,*args,**kwargs):
-        proyectosllamda=proyecto.objects.all()
-        categoriallamada= categorias.objects.all()
-        return render(request,self.template_name,{'proyectosLLAMA':proyectosllamda,'categoriaLLAMA':categoriallamada})
+    def get_queryset(self):
+        self.proyectosllamada=proyecto.objects.all()
+        self.categoriallamada= categorias.objects.all()
+        return self.proyectosllamada, self.categoriallamada
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['proyectosLLAMA'] = self.proyectosllamada
+        context['categoriaLLAMA'] = self.categoriallamada
+        return context
+
+
 
 class Categorias(ListView):
     template_name='Portafolio/categorias.html'

@@ -2,42 +2,153 @@
 {% extends "Index/contenidos.html" %}
 {% load static %}
 {% block content %}
-   <!-- Heading -->
-   <section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'Index/img/principal.jpg' %}" alt="">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4" >
-            <span class="section-heading-upper">Puntualidad</span>
-            <span class="section-heading-lower">La mejor atención</span>
-          </h2>
-          <p class="mb-3">Todo lo que necesite a una llamada de distancia.
-          </p>
-         
+
+ <!-- Slider o carrusel -->
+ <div class="banner-carousel banner-carousel-1 mb-0">
+  <div class="banner-carousel-item" style="background-image:url('{% static 'Index/images/slider-main/bg1.jpg' %}')">
+    <div class="slider-content">
+      <div class="container h-100">
+        <div class="row align-items-center h-100">
+          <div class="col-md-12 text-center">
+            <h2 class="slide-title" data-animation-in="slideInLeft">Lorem ipsum, dolor sit.</h2>
+            <h3 class="slide-sub-title" data-animation-in="slideInRight">Lorem, ipsum.</h3>
+            <p data-animation-in="slideInLeft" data-duration-in="1.2">
+              <a href="#" class="slider btn btn-primary">Lorem.</a>
+              <a href="#" class="slider btn btn-primary border">Lorem, ipsum.</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
+  <div class="banner-carousel-item" style="background-image:url({% static 'Index/images/slider-main/bg1.jpg' %})">
+    <div class="slider-content text-left">
+      <div class="container h-100">
+        <div class="row align-items-center h-100">
+          <div class="col-md-12">
+            <h2 class="slide-title" data-animation-in="slideInLeft">Lorem ipsum, dolor sit.</h2>
+            <h3 class="slide-sub-title" data-animation-in="slideInRight">Lorem, ipsum.</h3>
+            <p data-animation-in="slideInLeft" data-duration-in="1.2">
+              <a href="#" class="slider btn btn-primary">Lorem.</a>
+              <a href="#" class="slider btn btn-primary border">Lorem, ipsum.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  
-    <!-- Message -->
-    <section class="page-section cta">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Compromiso total</span>
-                <span class="section-heading-lower">Garantizado</span>
-              </h2>
-              <p class="mb-0">Con más de 75 años de experiencia a nuestras espaldas, desde Gestión de Pedidos tenemos los conocimientos y herramientas necesarios para llevar cualquier objeto a la puerta de su casa con puntualidad y profesionalidad.</p>
+  <div class="banner-carousel-item" style="background-image:url({% static 'Index/images/slider-main/bg1.jpg' %})">
+    <div class="slider-content text-right">
+      <div class="container h-100">
+        <div class="row align-items-center h-100">
+          <div class="col-md-12">
+            <h2 class="slide-title" data-animation-in="slideInLeft">Lorem ipsum, dolor sit.</h2>
+            <h3 class="slide-sub-title" data-animation-in="slideInRight">Lorem, ipsum.</h3>
+            <p class="slider-description lead" data-animation-in="slideInRight">We will deal with your failure that determines how you achieve success.</p>
+            <div data-animation-in="slideInLeft">
+              <a href="#" class="slider btn btn-primary" aria-label="contact-with-us">Get Free Quote</a>
+              <a href="#" class="slider btn btn-primary border" aria-label="learn-more-about-us">Learn more</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
+<!-- Slider o carrusel end -->
+
+<!-- Caja -->
+<section class="call-to-action-box no-padding">
+  <div class="container">
+    <div class="action-style-box">
+      <div class="row align-items-center">
+        <div class="col-md-8 text-center text-md-left">
+          <div class="call-to-action-text">
+            <h3 class="action-title">Lorem ipsum, dolor sit amet consectetur adipisicing.</h3>
+          </div>
+        </div><!-- Col end -->
+        <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
+          <div class="call-to-action-btn">
+            <a class="btn btn-dark" href="#">Acción</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Caja end -->
+
+<!-- Datos de la empresa -->
+<section>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ts-intro">
+          <h3 class="into-sub-title">Misión</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Est sint adipisci facere nulla quisquam maiores in quibusdam nesciunt nostrum perspiciatis odio laudantium id earum, doloremque architecto vitae quaerat quis eum?</p>
+          <span class="ts-service-icon">
+            <i class="fas fa-trophy"></i>
+          </span>
+        </div>
+
+        <hr class="bg-dark">
+
+        <div class="ts-intro mt-4 mb-5">
+          <h3 class="into-sub-title">Visón</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, fugit.</p>
+          <span class="ts-service-icon">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+        </div>
+
+        <hr class="bg-dark">
+
+        <div class="ts-intro mt-4 mb-5">
+          <h3 class="into-sub-title">Otra onda</h3>
+          <p>Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Fugit tempora laboriosam deleniti, culpa nam accusantium enim. Modi, odio.</p>
+          <span class="ts-service-icon">
+            <i class="fas fa-users"></i>
+          </span>
+        </div>
+
+        <div class="gap-20"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end -->
+
+<!-- Contadore -->
+<section id="facts" class="facts-area dark-bg">
+  <div class="container">
+    <div class="facts-wrapper">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 ts-facts">
+          <div class="ts-facts-img">
+            <img loading="lazy" src="{% static 'Index/images/icon-image/fact1.png' %}" alt="facts-img">
+          </div>
+          <div class="ts-facts-content">
+            <h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
+            <h3 class="ts-facts-title">Proyectos Totales</h3>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 ts-facts mt-5 mt-sm-0">
+          <div class="ts-facts-img">
+            <img loading="lazy" src="{% static 'Index/images/icon-image/fact2.png' %}" alt="facts-img">
+          </div>
+          <div class="ts-facts-content">
+            <h2 class="ts-facts-num"><span class="counterUp" data-count="647">0</span></h2>
+            <h3 class="ts-facts-title">Miembros de la empresa</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contadores end -->
 
 {% endblock %}
-   
