@@ -2,31 +2,47 @@
 {% load static %}
 {% block content %}
 
-<body>
-
-    {% for servicio in servicioLLAMA %}
-
-    <section class="page-section clearfix">
-        <div class="container">
-          <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ servicio.imagen.url}}" alt="" style="width: 75%;">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-              <h2 class="section-heading mb-4" >
-                <span class="section-heading-lower">{{ servicio.titulo }}</span>
-              </h2>
-              <p class="mb-3">{{ servicio.contenido }}
-              </p>
-             
-            </div>
+<!-- Banner -->
+<div id="banner-area" class="banner-area" style="background-image:url('{% static 'Index/images/banner/banner3.jpg' %}')">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">SERVICIOS</h1>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Banner end -->
 
 
 
-      {% endfor %}
 
-</body>
+<section id="main-container" class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="shuffle-btn-group">
+          <label class="active" for="All">
+            <input type="radio" name="shuffle-filter" id="All" value="All" checked="checked">Todos
+          </label>
+        </div><!-- project filter end -->
+        <!-- carousel servicios -->
+        
+        <!-- fin del carousel servicios -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    
+     
+
 
 
 {% endblock %}

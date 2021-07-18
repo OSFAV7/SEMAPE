@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from Portafolio.models import proyecto, categorias
+from Portafolio.models import proyecto, categorias, galeria
 from django.views.generic import TemplateView, ListView
 
 
@@ -23,14 +23,14 @@ class Categorias(ListView):
     template_name='Portafolio/categorias.html'
 
     def get_queryset(self):
-        self.categoria= get_object_or_404(categorias, id=self.kwargs['categoria_id'])
-        self.proyectoLLama= proyecto.objects.filter(categorias =self.categoria)
-        return  self.proyectoLLama, self.categoria
+        self.proyectoEspesifico= get_object_or_404(proyecto, id=self.kwargs['proyecto_id'])
+        self.proyectoGaleria= galeria.objects.filter(proyectoPertenece =self.proyectoEspesifico)
+        return  self.proyectoEspesifico, self.proyectoGaleria
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categoria'] = self.categoria
-        context['listaProyecto'] = self.proyectoLLama
+        context['proyecto'] = self.proyectoEspesifico
+        context['listaProyecto'] = self.proyectoGaleria
         return context
 
