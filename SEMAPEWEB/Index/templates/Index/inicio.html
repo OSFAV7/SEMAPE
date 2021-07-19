@@ -3,13 +3,23 @@
 {% load static %}
 {% block content %}
 
+<style type="text/css">
+  #capa1{ position:absolute;
+   z-index:1;
+  }
+  #capa2{
+   position:absolute;
+   z-index:0;
+  }
+  </style>
  <!-- Slider o carrusel -->
  <div class="banner-carousel banner-carousel-1 mb-0">
-  <div class="banner-carousel-item" style="background-image:url('{% static 'Index/images/slider-main/bg1.jpg' %}')">
+  <div class="banner-carousel-item ">
+    <div id="capa2"><video src="{% static 'Index/images/video_corto_sin_audio.mp4' %}" autoplay muted loop ></video></div>
     <div class="slider-content">
       <div class="container h-100">
         <div class="row align-items-center h-100">
-          <div class="col-md-12 text-center">
+          <div id="capa1" class="col-md-12 text-center">
             <h2 class="slide-title" data-animation-in="slideInLeft">Lorem ipsum, dolor sit.</h2>
             <h3 class="slide-sub-title" data-animation-in="slideInRight">Lorem, ipsum.</h3>
             <p data-animation-in="slideInLeft" data-duration-in="1.2">
@@ -22,9 +32,10 @@
     </div>
   </div>
 
-  <div class="banner-carousel-item" style="background-image:url({% static 'Index/images/slider-main/bg1.jpg' %})">
+  <div class="banner-carousel-item">
+    <div id="capa2"><img loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER"></div>
     <div class="slider-content text-left">
-      <div class="container h-100">
+      <div id="capa1" class="container h-100">
         <div class="row align-items-center h-100">
           <div class="col-md-12">
             <h2 class="slide-title" data-animation-in="slideInLeft">Lorem ipsum, dolor sit.</h2>
@@ -39,7 +50,8 @@
     </div>
   </div>
 
-  <div class="banner-carousel-item" style="background-image:url({% static 'Index/images/slider-main/bg1.jpg' %})">
+  <div class="banner-carousel-item">
+    <div id="capa2"><img loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER"></div>
     <div class="slider-content text-right">
       <div class="container h-100">
         <div class="row align-items-center h-100">

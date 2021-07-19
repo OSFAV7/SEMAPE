@@ -1,6 +1,13 @@
 {% extends "Index/contenidos.html" %}
 {% load static %}
+<!-- cards servicio -->
+
 {% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'Index/serviciosstatic/css/normalize.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'Index/serviciosstatic/css/demo.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'Index/serviciosstatic/css/component.css' %}" />
+<script src="{% static 'Index/serviciosstatic/js/snap.svg-min.js' %}"></script>
 
 <!-- Banner -->
 <div id="banner-area" class="banner-area" style="background-image:url('{% static 'Index/images/banner/banner3.jpg' %}')">
@@ -26,22 +33,46 @@
     <div class="row">
       <div class="col-12">
         <div class="shuffle-btn-group">
-          <label class="active" for="All">
-            <input type="radio" name="shuffle-filter" id="All" value="All" checked="checked">Todos
-          </label>
+ 
+         <label class="active" for="All">
+           <input type="radio" name="shuffle-filter" id="All" value="All" checked="checked">Todos
+         </label>
         </div><!-- project filter end -->
-        <!-- carousel servicios -->
-        
-        <!-- fin del carousel servicios -->
+ 
+ 
+        <div class="row shuffle-wrapper">
+          <div class="col-1 shuffle-sizer"></div>
+ 
+          {% for servicio in servicioLLAMA %}
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;All&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{ servicio.imagen.url}}">
+                <img class="img-fluid" src="{{ servicio.imagen.url}}" alt="project-image">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="#">{{ servicio.titulo }}</a>
+                  </h3>
+                  <p class="project-cat">{{ servicio.contenido }}
+                   
+                   
+                   </p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 1 end -->
+             {% endfor %}
+        </div><!-- shuffle end -->
       </div>
-    </div>
-  </div>
-</section>
+ 
+    </div><!-- Content row end -->
+ 
+  </div><!-- Conatiner end -->
+ </section><!-- Main container end -->
 
 
-
-    
-     
 
 
 
