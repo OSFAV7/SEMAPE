@@ -7,6 +7,7 @@ class categorias(models.Model):
     nombre = models.CharField('Nombre de la categoria',max_length=50)
     created = models.DateField('Fecha de creacion',auto_now_add=True)
     update  = models.DateField('Fecha de actualizacion',auto_now=True)
+    
 
     class Meta:
         verbose_name='Categoria'
@@ -33,7 +34,7 @@ class proyecto(models.Model):
     descripcionTrabajo = models.TextField('Descripcion del protyecto',null=True, blank=True, max_length=40000)
     imagen = models.ImageField('Imagen para mostrar', upload_to='Portafolio', null=True, blank=True)
     empresaCliente =models.ForeignKey(empresasCliente, on_delete= models.CASCADE)
-    categorias = models.ManyToManyField(categorias)
+    categorias = models.ManyToManyField(categorias, related_name='categorias')
     created = models.DateField('Fecha de registro', auto_now_add=True)
     update  = models.DateField('Fecha de actualizacion', auto_now=True)
 

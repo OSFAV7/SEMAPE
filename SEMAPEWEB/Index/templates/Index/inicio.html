@@ -10,12 +10,55 @@
   #capa2{
    position:absolute;
    z-index:0;
+   
   }
+
+
+  .responsive {
+    width: 96%;
+    max-width: 15%;
+    margin: 0 auto;
+    }
+    .responsive img {
+    width: 100%;
+    height: auto;
+  }
+
+  .responsive video {
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: 991px) {
+    .responsive {
+			max-width: 991px
+		}
+		.responsive img {
+			height: 550px;
+		}
+    .responsive video {
+      max-width: 65%;
+			height: 550px;
+		}
+	}
+
+	@media (max-width: 575px) {
+
+    .responsive {
+			max-width: 575px
+		}
+		.responsive img {
+			height: 450px;
+		}
+    .responsive video {
+      max-width: 50%;
+			height: 450px;
+		}
+	}
   </style>
  <!-- Slider o carrusel -->
  <div class="banner-carousel banner-carousel-1 mb-0">
-  <div class="banner-carousel-item ">
-    <div id="capa2"><video src="{% static 'Index/images/video_corto_sin_audio.mp4' %}" autoplay muted loop ></video></div>
+  <div class="banner-carousel-item">
+    <div id="capa2" class="responsive"> <video src="{% static 'Index/images/video_corto_sin_audio.mp4' %}" autoplay muted loop ></video></div>
     <div class="slider-content">
       <div class="container h-100">
         <div class="row align-items-center h-100">
@@ -33,7 +76,7 @@
   </div>
 
   <div class="banner-carousel-item">
-    <div id="capa2"><img loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER"></div>
+    <div id="capa2" class="responsive"><img loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER"></div>
     <div class="slider-content text-left">
       <div id="capa1" class="container h-100">
         <div class="row align-items-center h-100">
@@ -51,7 +94,7 @@
   </div>
 
   <div class="banner-carousel-item">
-    <div id="capa2"><img loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER"></div>
+    <div id="capa2" class="responsive"><img  loading="lazy" src="{% static 'Index/images/slider-main/bg1.jpg' %}" alt="BANER2"></div>
     <div class="slider-content text-right">
       <div class="container h-100">
         <div class="row align-items-center h-100">

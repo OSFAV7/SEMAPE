@@ -53,7 +53,7 @@
               <div class="project-item-info">
                 <div class="project-item-info-content">
                   <h3 class="project-item-title">
-                    <a href="#">{{ servicio.titulo }}</a>
+                    <a href="{% url 'espesificacionServicio' servicio.id %}">{{ servicio.titulo }}</a>
                   </h3>
                   <p class="project-cat">{{ servicio.contenido }}
                    

@@ -1,0 +1,210 @@
+{% extends "Index/contenidos.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Banner -->
+<div id="banner-area" class="banner-area" style="background-image:url('{% static 'Index/images/banner/banner1.jpg' %}')">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">Servicio Nombre</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Banner end -->
+
+ <!-- Detalles -->
+ <section id="main-container" class="main-container">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="page-slider" class="page-slider small-bg">
+
+          <div class="item">
+            <img loading="lazy" class="img-fluid" src="{{servicioEspesifico.imagen.url}}" alt="project-image" />
+          </div>
+
+        </div>
+      </div>
+        
+      <div class="col-lg-4 mt-5 mt-lg-0">
+
+        <h3 class="column-title mrt-0">{{servicioEspesifico.titulo}}</h3>
+        <p>{{servicioEspesifico.contenido}}</p>
+
+        <ul class="project-info list-unstyled">
+          <li>
+            <p class="project-info-label">{% for espesificacion in servicioEspesifico.servicioEspesificacion.all %}
+                  <h4> {{ espesificacion.titulo}} </h4>
+                  {% if espesificacion.cajadetexto != True %}
+                  <select id="desple" name="OS">
+                    {% endif %}
+
+                    {% if espesificacion.cajadetexto == True  %}
+                    <input type="text" name="caja de texto}">
+                    {% endif %}
+                    
+                  {% for espesifica in servicioEspesificacion %}
+                    
+                    
+                 
+                    {% for detalle in espesifica %}
+
+                      {% if detalle.espesificacion.id == espesificacion.id %}
+                        <option value="{{detalle.detalle}}">{{detalle.detalle}}</option>    
+                      {% endif %}
+      
+                      
+
+                    {% endfor %}
+                 
+
+                  {% endfor%}
+                </select>
+
+              {% endfor %}
+            </p>
+            <p class="project-info-content">123</p>
+          </li>
+          <li>
+            <p class="project-info-label">Algun otro dato</p>
+            <p class="project-info-content">Lorem ipsum dolor sit.</p>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Detalles end -->
+
+
+<hr class="container bg-dark">
+
+    <!-- Testimonios y Clientes -->
+    <section class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="column-title">Testimonios</h3>
+
+            <div id="testimonial-slide" class="testimonial-slide">
+              <div class="item">
+                <div class="quote-item">
+                  <span class="quote-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat soluta inventore quos laborum voluptatibus sed dolores id, aut dicta omnis est minima sequi et tempora incidunt, sunt possimus cupiditate, voluptate facilis quis dolorum at optio veritatis doloremque! Alias hic excepturi consectetur, sequi aliquam!
+                  </span>
+
+                  <div class="quote-item-footer">
+                    <img loading="lazy" class="testimonial-thumb" src="{% static 'Index/images/clients/testimonial1.png' %}" alt="testimonial">
+                    <div class="quote-item-info">
+                      <h3 class="quote-author">Nombre Persona</h3>
+                      <span class="quote-subtext">Empresa</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Item 1 end -->
+
+              <div class="item">
+                <div class="quote-item">
+                  <span class="quote-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat soluta inventore quos laborum voluptatibus sed dolores id, aut dicta omnis est minima sequi et tempora incidunt, sunt possimus cupiditate, voluptate facilis quis dolorum at optio veritatis doloremque! Alias hic excepturi consectetur, sequi aliquam!
+                  </span>
+
+                  <div class="quote-item-footer">
+                    <img loading="lazy" class="testimonial-thumb" src="{% static 'Index/images/clients/testimonial2.png' %}" alt="testimonial">
+                    <div class="quote-item-info">
+                      <h3 class="quote-author">Nombre Persona</h3>
+                      <span class="quote-subtext">Empresa</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Item 2 end -->
+
+              <div class="item">
+                <div class="quote-item">
+                  <span class="quote-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat soluta inventore quos laborum voluptatibus sed dolores id, aut dicta omnis est minima sequi et tempora incidunt, sunt possimus cupiditate, voluptate facilis quis dolorum at optio veritatis doloremque! Alias hic excepturi consectetur, sequi aliquam!
+                  </span>
+
+                  <div class="quote-item-footer">
+                    <img loading="lazy" class="testimonial-thumb" src="{% static 'Index/images/clients/testimonial3.png' %}" alt="testimonial">
+                    <div class="quote-item-info">
+                      <h3 class="quote-author">Nombre Persona</h3>
+                      <span class="quote-subtext">Empresa</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Item 2 end -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 mt-5 mt-lg-0">
+
+            <h3 class="column-title">Empresas</h3>
+
+            <div class="row all-clients">
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client1.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 1 end -->
+
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client2.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 2 end -->
+
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client3.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 3 end -->
+
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client4.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 4 end -->
+
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client5.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 5 end -->
+
+              <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                  <a href="#!"><img loading="lazy" class="img-fluid" src="{% static 'Index/images/clients/client6.png' %}" alt="clients-logo" /></a>
+                </figure>
+              </div><!-- Empresa 6 end -->
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Testimonios y Clientes end -->
+
+
+
+
+
+
+{% endblock %}
