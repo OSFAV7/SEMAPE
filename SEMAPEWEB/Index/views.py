@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 class Home(TemplateView):
-    template_name= 'Index/inicio.html'
+    template_name= 'Index/index.html'
     
 
  #   QuerySet= request.GET.get("busqueda")
