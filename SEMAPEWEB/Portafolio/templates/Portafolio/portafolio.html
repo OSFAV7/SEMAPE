@@ -1,80 +1,116 @@
+
 {% extends "Index/contenidos.html" %}
 {% load static %}
+
+
+{% block necesito %}
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="{% static 'folder/plugins/bootstrap/bootstrap.min.css' %}">
+   <!-- FontAwesome -->
+   <link rel="stylesheet" href="{% static 'folder/plugins/fontawesome/css/all.min.css' %}">
+   <!-- Animation -->
+   <link rel="stylesheet" href="{% static 'folder/plugins/animate-css/animate.css' %}">
+   <!-- slick Carousel -->
+   <link rel="stylesheet" href="{% static 'folder/plugins/slick/slick.css' %}">
+   <link rel="stylesheet" href="{% static 'folder/plugins/slick/slick-theme.css' %}">
+   <!-- Colorbox -->
+   <link rel="stylesheet" href="{% static 'folder/plugins/colorbox/colorbox.css' %}">
+   <!-- Template styles-->
+   <link rel="stylesheet" href="{% static 'folder/css/style.css' %}">
+
+{% endblock %}
+
 {% block content %}
-
-
-
- <!-- Banner -->
-<!-- Banner -->
-<div id="banner-area" class="banner-area" style="background-image:url('{% static 'Index/images/banner/banner2.jpg' %}')">
-  <div class="banner-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="banner-heading">
-            <h1 class="banner-title">EXPERINCIA</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="mockup-bg">
+  <img src="{% static 'dist/images/banner2.jpg' %}" alt="Banner">
 </div>
-<!-- Banner end -->
 
-<section id="main-container" class="main-container">
- <div class="container">
-   <div class="row">
-     <div class="col-12">
-       <div class="shuffle-btn-group">
+<h1 class="hero-title mt-0">Portafolio</h1>
 
-        <label class="active" for="All">
-          <input type="radio" name="shuffle-filter" id="All" value="All" checked="checked">Todos
-        </label>
+{% endblock %}
 
-         {% for categoria in categoriaLLAMA %}
-         <label class="" for="{{ categoria.nombre}}">
-           <input type="radio" name="shuffle-filter" id="{{ categoria.nombre}}" value="{{ categoria.nombre}}" checked="checked">{{ categoria.nombre}}
-         </label>
-         {% endfor %}
-       </div><!-- project filter end -->
-
-
-       <div class="row shuffle-wrapper">
-         <div class="col-1 shuffle-sizer"></div>
-
-         {% for proyecto in proyectosLLAMA %}
-         <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[{% for cate in proyecto.categorias.all %}&quot;{{cate.nombre}}&quot;,{% endfor %}&quot;All&quot;]">
-           <div class="project-img-container">
-             <a class="gallery-popup" href="{{ proyecto.imagen.url}}">
-               <img class="img-fluid" src="{{ proyecto.imagen.url}}" alt="project-image">
-               <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-             </a>
-             <div class="project-item-info">
-               <div class="project-item-info-content">
-                 <h3 class="project-item-title">
-                   <a href="{% url 'categorias' proyecto.id %}">{{ proyecto.titulo }}</a>
-                 </h3>
-                 <p class="project-cat">{{ proyecto.contenido }} 
-                  
-                  
-                  </p>
-               </div>
-             </div>
-           </div>
-         </div><!-- shuffle item 1 end -->
-            {% endfor %}
-       </div><!-- shuffle end -->
-     </div>
-
-     
-
-   </div><!-- Content row end -->
-
- </div><!-- Conatiner end -->
-</section><!-- Main container end -->
+{% block content2 %}
 
 
 
+			<!-- Schedule Section Start -->
+      <section id="main-container" class="main-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="shuffle-btn-group">
+       
+               <label class="active" for="All">
+                 <input type="radio" name="shuffle-filter" id="All" value="All" checked="checked">Todos
+               </label>
+       
+                {% for categoria in categoriaLLAMA %}
+                <label class="" for="{{ categoria.nombre}}">
+                  <input type="radio" name="shuffle-filter" id="{{ categoria.nombre}}" value="{{ categoria.nombre}}" checked="checked">{{ categoria.nombre}}
+                </label>
+                {% endfor %}
+              </div><!-- project filter end -->
+       
+       
+              <div class="row shuffle-wrapper">
+                <div class="col-1 shuffle-sizer"></div>
+       
+                {% for proyecto in proyectosLLAMA %}
+                <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[{% for cate in proyecto.categorias.all %}&quot;{{cate.nombre}}&quot;,{% endfor %}&quot;All&quot;]">
+                  <div class="project-img-container">
+                    <a class="gallery-popup" href="{{ proyecto.imagen.url}}">
+                      <img class="img-fluid" src="{{ proyecto.imagen.url}}" alt="project-image">
+                      <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                    </a>
+                    <div class="project-item-info">
+                      <div class="project-item-info-content">
+                        <h3 class="project-item-title">
+                          <a href="{% url 'categorias' proyecto.id %}">{{ proyecto.titulo }}</a>
+                        </h3>
+                        <p class="project-cat">{{ proyecto.contenido }} 
+                         
+                         
+                         </p>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- shuffle item 1 end -->
+                   {% endfor %}
+              </div><!-- shuffle end -->
+            </div>
+       
+            
+       
+          </div><!-- Content row end -->
+       
+        </div><!-- Conatiner end -->
+       </section><!-- Main container end -->
+			    <!-- Schedule Section End -->
 
 
+
+
+
+
+
+
+{% endblock %}
+
+{% block scrpits %}
+
+  <!-- initialize jQuery Library -->
+  <script src="{% static 'folder/plugins/jQuery/jquery.min.js' %}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{% static 'folder/plugins/bootstrap/bootstrap.min.js' %}" defer></script>
+  <!-- Slick Carousel -->
+  <script src="{% static 'folder/plugins/slick/slick.min.js' %}"></script>
+  <script src="{% static 'folder/plugins/slick/slick-animation.min.js' %}"></script>
+  <!-- Color box -->
+  <script src="{% static 'folder/plugins/colorbox/jquery.colorbox.js' %}"></script>
+  <!-- shuffle -->
+  <script src="{% static 'folder/plugins/shuffle/shuffle.min.js' %}" defer></script>
+
+  <!-- Template custom -->
+  <script src="{% static 'folder/js/script.js' %}"></script>
+  
 {% endblock %}

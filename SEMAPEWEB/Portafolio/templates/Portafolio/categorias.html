@@ -1,22 +1,37 @@
 {% extends "Index/contenidos.html" %}
 {% load static %}
-{% block content %}
 
-<!-- Banner -->
-<div id="banner-area" class="banner-area" style="background-image:url('{% static 'Index/images/banner/banner1.jpg' %}')">
-  <div class="banner-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="banner-heading">
-            <h1 class="banner-title">Servicio Nombre</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+{% block necesito %}
+ <!-- Bootstrap -->
+ <link rel="stylesheet" href="{% static 'folder/plugins/bootstrap/bootstrap.min.css' %}">
+ <!-- FontAwesome -->
+ <link rel="stylesheet" href="{% static 'folder/plugins/fontawesome/css/all.min.css' %}">
+ <!-- Animation -->
+ <link rel="stylesheet" href="{% static 'folder/plugins/animate-css/animate.css' %}">
+ <!-- slick Carousel -->
+ <link rel="stylesheet" href="{% static 'folder/plugins/slick/slick.css' %}">
+ <link rel="stylesheet" href="{% static 'folder/plugins/slick/slick-theme.css' %}">
+ <!-- Colorbox -->
+ <link rel="stylesheet" href="{% static 'folder/plugins/colorbox/colorbox.css' %}">
+ <!-- Template styles-->
+ <link rel="stylesheet" href="{% static 'folder/css/style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+<div class="mockup-bg">
+  <img src="{% static 'dist/images/banner2.jpg' %}" alt="Banner">
 </div>
-<!-- Banner end -->
+
+<h1 class="hero-title mt-0">servicio tal</h1>
+
+{% endblock %}
+
+{% block content2 %}
+
+  
 
  <!-- Detalles -->
  <section id="main-container" class="main-container">
@@ -179,4 +194,24 @@
 
 
 
+{% endblock %}
+
+{% block scrpits %}
+
+
+  <!-- initialize jQuery Library -->
+  <script src="{% static 'folder/plugins/jQuery/jquery.min.js' %}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{% static 'folder/plugins/bootstrap/bootstrap.min.js' %}" defer></script>
+  <!-- Slick Carousel -->
+  <script src="{% static 'folder/plugins/slick/slick.min.js' %}"></script>
+  <script src="{% static 'folder/plugins/slick/slick-animation.min.js' %}"></script>
+  <!-- Color box -->
+  <script src="{% static 'folder/plugins/colorbox/jquery.colorbox.js' %}"></script>
+  <!-- shuffle -->
+  <script src="{% static 'folder/plugins/shuffle/shuffle.min.js' %}" defer></script>
+
+  <!-- Template custom -->
+  <script src="{% static 'folder/js/script.js' %}"></script>
+  
 {% endblock %}

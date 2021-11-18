@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
 	<meta charset="UTF-8">
 	<title>SEMAPE</title>
 
@@ -8,7 +8,6 @@
 	
   
           
-<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,9 +30,17 @@
     <link rel="stylesheet" type="text/css" href="{% static 'contendor/css/main.css' %}">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="{% static 'contendor/css/responsive.css' %}">
-  
-  </head>
-  <body>
+
+    {% block necesito %}
+
+
+    {% endblock %}
+
+ <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|Oxygen:700" rel="stylesheet">
+ <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
+ <script src="https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+
+
   
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
@@ -45,7 +52,13 @@
                 <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'servicios' %}">Services</a>
+                <a class="menu-list navbar-collapse">Services</a>
+                <ul class="onepage-nev navbar-nav">
+                  <a class="nav-link" href="#team">oso</a>
+                  <a class="nav-link" href="#team">peluchom</a>
+
+
+                </ul>
               </li>                            
               <li class="nav-item">
                 <a class="nav-link" href="#team">Team</a>
@@ -126,16 +139,48 @@
     <script src="{% static 'contendor/js/map.js' %}"></script>
       
   <!--zona de carga de contenidos -->
+  <body class="is-boxed has-animations">
+    <div>
+        <main>
+			<section class="hero text-center text-light">
+				<div class="hero-bg"></div>
+				<div class="container-sm">
+			
+					<div class="hero-inner">
+					
+						<div class="hero-copy">
+              {% block content %}
 
-  {% block content %}
+              {% endblock %}
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</section>
+
+  {% block content2 %}
 
   {% endblock %}
-  <!--fin zona de carga de contenidos -->
 
+</main>	
+</div>
+
+
+
+
+<script src="{% static 'dist/js/main.min.js' %}"></script>
+
+</body>
+
+{% block scrpits %}
+
+{% endblock %}
 
   </body>
   
-
+  
   
 
 </html>

@@ -1,12 +1,27 @@
 from django.shortcuts import get_object_or_404, render
-from Servicios.models import Servicio, Espesificaciondetalle, EspesificacionServicio
+from Servicios.models import Servicio, Espesificaciondetalle, EspesificacionServicio, BloqueServicio
 from django.views.generic import ListView
 
 # Create your views here.
 class Service(ListView):
     template_name= 'Servicios/servicios.html'
-    context_object_name="servicioLLAMA"
-    queryset= Servicio.objects.all()
+
+    def get_queryset(self):
+
+        self.Bloquedeservicio= BloqueServicio.objects.filter(area = self.kwargs['area_id'])
+        self.servicioslista=[]
+        for lista in self.Bloquedeservicio:
+            id=lista.id
+            hacerlista=Servicio.objects.filter(bloque= id)
+            for lista in hacerlista:
+                self.servicioslista.append(lista)
+        return self.Bloquedeservicio, self.servicioslista
+
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+        context['servicioLLAMA']= self.servicioslista
+        context['nombreBloque']= self.Bloquedeservicio
+        return context
 
 class SpecificService(ListView):
     template_name='Servicios/detallesServicio.html'

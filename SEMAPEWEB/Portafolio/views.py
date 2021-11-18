@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from Portafolio.models import proyecto, categorias, galeria
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
 
 class Folder(ListView):

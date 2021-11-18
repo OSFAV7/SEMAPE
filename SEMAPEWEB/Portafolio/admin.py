@@ -24,8 +24,8 @@ class proyectoAdmin(admin.ModelAdmin):
 
 
 class galeriasAdmin(admin.ModelAdmin):
-    search_fields= ['proyectoPertenece']
-    list_display = ['proyectoPertenece', 'update']
+    search_fields= ['nombre','proyectoPertenece__titulo']
+    list_display = ['proyectoPertenece','nombre', 'update']
     readonly_fields=('created','update')
 
 admin.site.register(categorias, categoriasAdmin)

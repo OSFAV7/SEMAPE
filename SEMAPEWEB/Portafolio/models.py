@@ -30,6 +30,7 @@ class empresasCliente(models.Model):
 
 class proyecto(models.Model):
     titulo = models.CharField('Nombre del proyecto', max_length=50)
+    destacado=models.BooleanField('mostrar en inicio', null=True, blank=True)
     contenido = models.TextField('Descripcion del protyecto', max_length=400)
     descripcionTrabajo = models.TextField('Descripcion del protyecto',null=True, blank=True, max_length=40000)
     imagen = models.ImageField('Imagen para mostrar', upload_to='Portafolio', null=True, blank=True)
