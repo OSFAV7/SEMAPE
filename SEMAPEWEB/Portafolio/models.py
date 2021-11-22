@@ -36,6 +36,7 @@ class proyecto(models.Model):
     imagen = models.ImageField('Imagen para mostrar', upload_to='Portafolio', null=True, blank=True)
     empresaCliente =models.ForeignKey(empresasCliente, on_delete= models.CASCADE)
     categorias = models.ManyToManyField(categorias, related_name='categorias')
+    banner = models.ImageField('Imagen de 1600X300', upload_to='Portafolio/banner', null=True, blank=True)
     created = models.DateField('Fecha de registro', auto_now_add=True)
     update  = models.DateField('Fecha de actualizacion', auto_now=True)
 
